@@ -10,6 +10,7 @@ class Navbar extends React.Component {
           <ul>
             <li><Link to='/library'>Library</Link></li>
             <li><Link to='/shelf'>My Shelf</Link></li>
+            <li><Link to='/new'>Create Draft</Link></li>
           </ul>
         </nav>
       </header>
