@@ -27,7 +27,8 @@ class StoryForm extends React.Component{
   }
 
   handleSubmit(story){
-    story.preventDefault()
+    story.preventDefault
+
     console.log('Title:', this.state.title)
     console.log('Description:', this.state.description)
     console.log('Start Snippet:', this.state.startSnippet)
