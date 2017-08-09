@@ -16,6 +16,7 @@ class SignupForm extends React.Component{
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleChange = this.handleChange.bind(this)
   }
+
   handleSubmit(event) {
     event.preventDefault()
     console.log('Submitted User:', this.state)
@@ -24,7 +25,7 @@ class SignupForm extends React.Component{
     .send(this.state)
     .then(res => {
       sessionStorage.setItem('token', res.text)
-      console.log(res.text)
+      console.log('Successful Signup:', res.text)
     })
     .catch(err => console.log(err.message))
   }
@@ -64,16 +65,23 @@ class SigninForm extends React.Component {
     this.state = {
       username: props.user ? props.user.username : '',
       password: props.user ? props.user.password : '',
-      email: props.user ? props.user.email : '',
     }
 
-    // this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
     this.handleChange = this.handleChange.bind(this)
   }
 
   handleSubmit(e) {
     e.preventDefault()
-    // this.props.handleSubmit(this.state)
+    console.log(this.state.username,':', this.state.password)
+    superagent.get(`${API_URL}/api/signin`)
+    .type('application/json')
+    .auth(this.state.username, this.state.password)
+    .send(this.state)
+    .then(res => {
+      sessionStorage.setItem('token', res.text)
+      console.log('Successful login:', res.text)
+    })
   }
 
   handleChange(story){
