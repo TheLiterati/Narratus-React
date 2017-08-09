@@ -6,6 +6,7 @@ import Navbar from './component/navbar'
 import Shelf from './component/shelf'
 import Library from './component/library'
 import StoryForm from './component/story-form'
+import Landing from './component/landing'
 
 class App extends React.Component {
   constructor(props){
@@ -18,6 +19,7 @@ class App extends React.Component {
         <BrowserRouter>
           <div>
             <Navbar />
+            <Route exact path='/' component={Landing} />
             <Route exact path='/library' component={Library} />
             <Route exact path='/shelf' component={Shelf} />
             <Route exact path='/new' component={StoryForm}/>
