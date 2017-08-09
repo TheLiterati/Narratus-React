@@ -14,22 +14,24 @@ class SignupForm extends React.Component{
   }
 
   render(){
-    <form id='signup-form'
+    return(      
+      <form id='signup-form'
       onSubmit={this.handleSubmit}>
       <input name='username' type='text' value={this.state.username} onChange={this.handleChange} />
       <input name='password' type='password' value={this.state.password} onChange={this.handleChange} />
       <input name='email' type='text' value={this.state.email} onChange={this.handleChange} />
       <button type='submit'>sign up</button>
-    </form>
+      </form>
+    )
   }
 }
 
-class SigninForm extends React.Component {
+// class SigninForm extends React.Component {
+//
+// }
+//
+// class Landing extends React.Component {
+//
+// }
 
-}
-
-class Landing extends React.Component {
-  
-}
-
-export default Landing
+export default SignupForm
