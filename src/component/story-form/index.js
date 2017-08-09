@@ -1,4 +1,5 @@
 import React from 'react'
+
 import superagent from 'superagent'
 
 const API_URL = 'http://localhost:3000'
@@ -26,7 +27,8 @@ class StoryForm extends React.Component{
   }
 
   handleSubmit(story){
-    story.preventDefault()
+    story.preventDefault
+
     console.log('Title:', this.state.title)
     console.log('Description:', this.state.description)
     console.log('Start Snippet:', this.state.startSnippet)
@@ -44,6 +46,7 @@ class StoryForm extends React.Component{
 
   render(){
     return(
+
       <form id='story-form'
         onSubmit={this.handleSubmit}>
         <input name='title' type='text' placeholder='Story Title' value={this.state.title} onChange={this.handleChange} />

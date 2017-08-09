@@ -11,23 +11,34 @@ import Landing from './component/landing'
 class App extends React.Component {
   constructor(props){
     super(props)
+
+    this.state = {
+      library: [],
+    }
+    this.getApp = this.getApp.bind(this)
+  }
+
+  getApp(){
+    return {
+      state: this.state,
+      setState: this.setState.bind(this),
+    }
   }
 
   render(){
+    let {app} = this.props
     return(
       <main>
         <BrowserRouter>
           <div>
-            <h1> Here comes the sass. </h1>
             <Navbar />
-            <Route exact path='/' component={Landing} />
-            <Route exact path='/library' component={Library} />
-            <Route exact path='/shelf' component={Shelf} />
-            <Route exact path='/new' component={StoryForm} />
+            <Route exact path='/' component={ () => <Landing app={this.getApp()}/>} />
+            <Route exact path='/library' component={ () => <Library app={this.getApp()}/>} library={app.state.library} />
+            <Route exact path='/shelf' component={ () => <Shelf app={this.getApp()}/>} />
+            <Route exact path='/new' component={ () => <StoryForm app={this.getApp()}/>} />
           </div>
         </BrowserRouter>
       </main>
-
     )
   }
 }
