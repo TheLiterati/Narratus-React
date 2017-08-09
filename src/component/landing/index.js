@@ -20,7 +20,7 @@ class SignupForm extends React.Component{
   handleSubmit(event) {
     event.preventDefault()
     console.log('Submitted User:', this.state)
-    superagent.post(`${API_URL}/api/signup`)
+    superagent.post(`${__API_URL__}/api/signup`)
     .type('application/json')
     .send(this.state)
     .then(res => {
@@ -74,7 +74,7 @@ class SigninForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault()
     console.log(this.state.username,':', this.state.password)
-    superagent.get(`${API_URL}/api/signin`)
+    superagent.get(`${__API_URL__}/api/signin`)
     .type('application/json')
     .auth(this.state.username, this.state.password)
     .send(this.state)

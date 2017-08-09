@@ -1,7 +1,11 @@
 'use strict'
 
+const dotenv = require('dotenv')
+const webpack = require('webpack')
 const HTMLPlugin = require('html-webpack-plugin')
 const ExtractPlugin = require('extract-text-webpack-plugin')
+
+dotenv.load()
 
 module.exports = {
   // devtool: 'cheap-module-eval-source-map',
@@ -17,6 +21,9 @@ module.exports = {
   plugins: [
     new ExtractPlugin('bundle-[hash].css'),
     new HTMLPlugin({template: `${__dirname}/src/index.html`}),
+    new webpack.DefinePlugin({
+      __API_URL__: JSON.stringify(process.env.API_URL),
+    }),
   ],
   module: {
     rules: [
