@@ -6,11 +6,6 @@ const API_URL = 'http://localhost:3000'
 class SignupForm extends React.Component{
   constructor(props){
     super(props)
-    // this.state = {
-    //   username: props.user ? props.user.username : '',
-    //   password: props.user ? props.user.password : '',
-    //   email: props.user ? props.user.email : '',
-    // }
 
     this.state = {
       username: '',
@@ -55,11 +50,7 @@ class SigninForm extends React.Component {
       password: props.user ? props.user.password : '',
       email: props.user ? props.user.email : '',
     }
-    // this.state = {
-    //   username: '',
-    //   password: '',
-    //   email: '',
-    // }
+
     // this.handleSubmit = this.handleSubmit.bind(this)
     // this.handleChange = this.handlechange.bind(this)
   }
