@@ -5,6 +5,8 @@ import {BrowserRouter, Route} from 'react-router-dom'
 import Navbar from './component/navbar'
 import Shelf from './component/shelf'
 import Library from './component/library'
+import StoryForm from './component/story-form'
+import SignupForm from './component/landing'
 
 class App extends React.Component {
   constructor(props){
@@ -18,8 +20,10 @@ class App extends React.Component {
           <div>
             <h1> Here comes the sass. </h1>
             <Navbar />
+            <Route exact path='/' component={SignupForm} />
             <Route exact path='/library' component={Library} />
             <Route exact path='/shelf' component={Shelf} />
+            <Route exact path='/new' component={StoryForm} />
           </div>
         </BrowserRouter>
       </main>
